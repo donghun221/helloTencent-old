@@ -8,7 +8,7 @@ ADD . /go/src/github.com/donghun221/helloworld
 # Build the outyet command inside the container.
 # (You may fetch or manage dependencies here,
 # either manually or with a tool like "godep".)
-RUN go install github.com/donghun221/helloworld
+RUN go install github.com/donghun221/helloworld/src
 
 # Run the outyet command by default when the container starts.
 ENTRYPOINT /go/bin/helloworld
