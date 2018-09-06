@@ -3,14 +3,14 @@
 FROM golang
 
 # Copy the local package files to the container's workspace.
-ADD . /go/src/github.com/donghun221/helloTencent
+ADD . /go/src/tencent.com/dongxuny/hellotencent
 
 # Build the outyet command inside the container.
 # (You may fetch or manage dependencies here,
 # either manually or with a tool like "godep".)
-RUN go install github.com/donghun221/helloTencent
+RUN go install tencent.com/dongxuny/hello-tencent
 
 ADD ./content /content
 
 # Run the outyet command by default when the container starts.
-ENTRYPOINT /go/bin/helloTencent
+ENTRYPOINT /go/bin/hello-tencent
