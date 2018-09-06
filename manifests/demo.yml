@@ -17,6 +17,7 @@
       spec:
         containers:
           - image: index.docker.io/dongxuny/hellotencent
+            imagePullPolicy: Always
             name: hello-tencent
             ports:
               - containerPort: 8000
