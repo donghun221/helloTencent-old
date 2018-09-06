@@ -1,0 +1,38 @@
+- apiVersion: apps/v1beta2
+  kind: Deployment
+  metadata:
+    labels:
+      app: hello-tencent
+    name: hello-tencent
+    namespace: default
+  spec:
+    replicas: 3
+    selector:
+      matchLabels:
+        app: hello-tencent
+    template:
+      metadata:
+        labels:
+          app: hello-tencent
+      spec:
+        containers:
+          - image: index.docker.io/dongxuny/hellotencent
+            name: hello-tencent
+            ports:
+              - containerPort: 8000
+            readinessProbe:
+              httpGet:
+                path: /
+                port: 8000
+- apiVersion: v1
+  kind: Service
+  metadata:
+    name: hello-tencent
+  spec:
+    ports:
+      - port: 80
+        protocol: TCP
+        targetPort: 8000
+    selector:
+      app: hello-tencent
+    type: LoadBalancer
