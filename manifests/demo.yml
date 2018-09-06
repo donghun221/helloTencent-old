@@ -4,7 +4,7 @@
     labels:
       app: hello-tencent
     name: hello-tencent
-    namespace: "${parameters.namespace ?: 'staging'}"
+    namespace: default
   spec:
     replicas: 3
     selector:
@@ -28,7 +28,7 @@
   kind: Service
   metadata:
     name: hello-tencent
-    namespace: "${parameters.namespace ?: 'staging'}"   
+    namespace: default   
   spec:
     ports:
       - port: 80
