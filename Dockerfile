@@ -13,4 +13,4 @@ RUN go install github.com/donghun221/helloTencent
 ADD ./content /content
 
 # Run the outyet command by default when the container starts.
-ENTRYPOINT /go/bin/helloworld
+ENTRYPOINT /go/bin/helloTencent
