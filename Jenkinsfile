@@ -9,7 +9,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Building...'
-        sh 'echo $GOPATH'
+        sh 'go build'
       }
     }
     stage('Test') {
