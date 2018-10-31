@@ -9,7 +9,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Docker logging in...'
-        sh '''docker login --username=dongxuny --password=donghun221
+        sh '''docker login --username=dongxuny --password=donghun221 -e=donghun221@gmail.com
 '''
         echo 'Build docker image...'
         sh '''docker image build -t dongxuny/hellotencent . 
