@@ -1,34 +1,34 @@
 apiVersion: apps/v1beta2
-  kind: Deployment
-  metadata:
-    labels:
+kind: Deployment
+metadata:
+  labels:
+    app: hello-tencent
+  name: hello-tencent
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
       app: hello-tencent
-    name: hello-tencent
-    namespace: default
-  spec:
-    replicas: 1
-    selector:
-      matchLabels:
+  template:
+    metadata:
+      labels:
         app: hello-tencent
-    template:
-      metadata:
-        labels:
-          app: hello-tencent
-      spec:
-        containers:
-          - image: index.docker.io/dongxuny/hellotencent
-            imagePullPolicy: Always
-            name: hello-tencent
-        resources:
-            limits:
-              cpu: 500m
-              memory: 250Mi
-            requests:
-              cpu: 250m
-              memory: 100Mi
-            ports:
-              - containerPort: 8000
-            readinessProbe:
-              httpGet:
-                path: /
-                port: 8000
+    spec:
+      containers:
+        - image: index.docker.io/dongxuny/hellotencent
+          imagePullPolicy: Always
+          name: hello-tencent
+      resources:
+          limits:
+            cpu: 500m
+            memory: 250Mi
+          requests:
+            cpu: 250m
+            memory: 100Mi
+          ports:
+            - containerPort: 8000
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8000
