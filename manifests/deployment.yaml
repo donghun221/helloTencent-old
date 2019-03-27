@@ -16,18 +16,18 @@ spec:
         app: hello-tencent
     spec:
       containers:
-        - image: index.docker.io/dongxuny/hellotencent
-          imagePullPolicy: Always
-          name: hello-tencent
+      - image: index.docker.io/dongxuny/hellotencent
+        imagePullPolicy: Always
+        name: hello-tencent
       resources:
-          limits:
-            cpu: 500m
-            memory: 250Mi
-          requests:
-            cpu: 250m
-            memory: 100Mi
-          ports:
-            - containerPort: 8000
+        limits:
+          cpu: 500m
+          memory: 250Mi
+        requests:
+          cpu: 250m
+          memory: 100Mi
+        ports:
+        - containerPort: 8000
           readinessProbe:
             httpGet:
               path: /
